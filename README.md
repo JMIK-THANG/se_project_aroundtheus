@@ -23,8 +23,7 @@
 
 ## Video
 [Video recording]
-<video controls src="project record.mp4" title="Preject video record"></video>
-
+<video controls src="project recording.mp4" title="Title"></video>
 
 
 
