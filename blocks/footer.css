@@ -2,17 +2,18 @@
   font-family: Inter, Arial, sans-serif;
   line-height: 21.87px;
   font-size: 18px;
-  margin: 60px 0 60px 200px;
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 67px 0 60px;
   color: #545454;
-  font-weight: 400px;
+  font-weight: 400;
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
   .footer__description {
     max-width: 282px;
-    height: 14px;
     margin-left: 19px;
     font-size: 14px;
     line-height: 16.94px;
-    font-weight: 400;
   }
 }
