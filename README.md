@@ -16,3 +16,7 @@
 ## Features
 
 - illipisis which allow to collapse the text element and repalce with three dots (...).
+
+## deploy
+
+[the project link](https://jmik-thang.github.io/se_project_aroundtheus/)
