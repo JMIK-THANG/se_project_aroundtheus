@@ -20,3 +20,16 @@
 ## deploy
 
 [the project link](https://jmik-thang.github.io/se_project_aroundtheus/)
+
+## Video
+[Video recording]
+<video controls src="project record.mp4" title="Preject video record"></video>
+
+
+
+
+
+
+
+
+
