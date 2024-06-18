@@ -22,13 +22,4 @@
 [the project link](https://jmik-thang.github.io/se_project_aroundtheus/)
 
 ## Video
-[Video recording]
-<video controls src="project recording.mp4" title="Title"></video>
-
-
-
-
-
-
-
 
