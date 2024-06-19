@@ -22,4 +22,5 @@
 [the project link](https://jmik-thang.github.io/se_project_aroundtheus/)
 
 ## video
-https://www.youtube.com/watch?v=WOYzaULUAvI
+[video]
+https://drive.google.com/file/d/1GHtc2fDue4MvcUNoeokhhkco7UQatpkD/view?usp=sharing
