@@ -1,0 +1,43 @@
+.form { 
+margin:0; 
+padding:0;
+
+}
+.form__fieldset{ 
+      border:none; 
+      margin:0; 
+      padding:0; 
+}
+.form__input { 
+      display:block; 
+      width:358px; 
+      height:27.26px; 
+      border:none; 
+      border-bottom:1px solid rgba(0,0,0,.1); 
+      height:14px; 
+      font-weight:400; 
+      font-size:14px; 
+      line-height:16.94px; 
+      padding-bottom:13.26px; 
+    
+}
+.form__input-title{ 
+      margin-bottom:29.74px; 
+}
+.form__input-description{ 
+     margin-bottom:48px; 
+}
+
+@media screen and ( max-width: 550px ) { 
+      .form__input { 
+            width:238px; 
+            height:27px; 
+      }
+      .form__input-title{ 
+            margin-bottom:30px; 
+
+      }
+      .form__input-description{ 
+            margin-bottom:45px; 
+      }
+}
