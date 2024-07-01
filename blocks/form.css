@@ -1,6 +1,5 @@
 .form__input {
   display: block;
-  width: 358px;
   height: 27.26px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -19,7 +18,6 @@
 
 @media screen and (max-width: 550px) {
   .form__input {
-    width: 238px;
     height: 27px;
   }
   .form__input-title {

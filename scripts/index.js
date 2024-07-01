@@ -41,7 +41,7 @@ const cardTemplate =
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
-function modalFormHandler(e) {
+function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = modalTitleInput.value;
   profileDescription.textContent = modalDescriptionInput.value;
@@ -63,7 +63,7 @@ profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal_opened");
 });
 profileModalClose.addEventListener("click", closePopup);
-profileEditModal.addEventListener("submit", modalFormHandler);
+profileEditModal.addEventListener("submit", handleProfileFormSubmit);
 
 initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
