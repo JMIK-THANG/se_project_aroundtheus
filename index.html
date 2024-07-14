@@ -45,6 +45,7 @@
         <p class="footer__description">&copy; 2024 Around the U.S</p>
       </footer>
     </div>
+    <!-- Edit button Modal -->
     <div class="modal profile__edit-modal">
       <div class="modal__container">
         <button type="button" class="modal__close"></button>
@@ -54,7 +55,7 @@
             type="text"
             name="title"
             class="form__input form__input-title"
-            placeholder="name"
+            placeholder="title"
             required
           />
           <input
@@ -68,13 +69,47 @@
         </form>
       </div>
     </div>
+    <!-- Add button Modal-->
+    <div class="modal modal__add-button">
+      <div class="modal__container">
+        <button type="button" class="modal__close"></button>
+        <h2 class="modal__title">New Place</h2>
+        <form class="modal__form form">
+          <input
+            type="text"
+            name="title"
+            class="form__input form__input-title"
+            placeholder="title"
+            required
+          />
+          <input
+            type="text"
+            name="description"
+            class="form__input form__input-description"
+            placeholder="image url"
+            required
+          />
+          <button type="submit" class="modal__button"></button>
+        </form>
+      </div>
+    </div>
+    <div class="modal preview__image_modal">
+      <div class="preview__container">
+        <button type="button" class="preview__close_button"></button>
+        <img src="" alt="" class="preview__image" />
+        <p class="preview__description"></p>
+      </div>
+    </div>
     <template id="card__template">
-      <li class="card">
+      <li class="card overlay">
         <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button type="button" class="card__like-button"></button>
         </div>
+        <button type="button" class="delete__button">
+          <img src="./imgaes/trash.svg" alt="" />
+        </button>
       </li>
     </template>
     <script src="scripts/index.js" defer></script>
