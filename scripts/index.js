@@ -32,7 +32,7 @@ const addCardFormElement = addNewCardModal.querySelector(".modal__form");
 // Edit Modal
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileFormElement = profileEditButton.querySelector(".modal__form");
-const profileEditModal = document.querySelector(".profile__edit-modal");
+const profileEditModal = document.querySelector(".profile__edit_modal");
 const profileModalClose = profileEditModal.querySelector(".modal__close");
 const addModalClose = addNewCardModal.querySelector(".modal__close");
 // Profile Input
@@ -84,6 +84,8 @@ function handleaddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   closeModal(addNewCardModal);
+  addCardFormElement.reset(); 
+
 }
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -92,6 +94,7 @@ function getCardElement(data) {
   cardImage.alt = data.name;
   const cardTitle = cardElement.querySelector(".card__title");
   cardTitle.textContent = data.name;
+  
   const deleteButton = cardElement.querySelector(".delete__button");
   deleteButton.addEventListener("click", () => {
     cardElement.remove();

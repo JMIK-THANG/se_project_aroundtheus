@@ -89,6 +89,7 @@
 .preview__image {
   max-width: 75vw;
   max-height: 75vh;
+  object-fit: cover;
 }
 .preview__close_button {
   position: absolute;
@@ -111,10 +112,6 @@
 }
 
 @media screen and (max-width: 500px) {
-  .modal__container {
-    width: 282px;
-    height: 322px;
-  }
   .modal__title {
     height: 22px;
     font-size: 18px;
@@ -124,7 +121,7 @@
     width: 26px;
     height: 26px;
     bottom: calc(100% + 13px);
-    left: calc(100% - 23.62px);
+    left: calc(100% - 40px);
   }
   .modal__button {
     height: 46px;
@@ -134,26 +131,16 @@
     height: 30px;
     bottom: calc(100% + 8px);
   }
-
-  .preview__image {
-    width: 240px;
-    height: 299px;
-    top: 136px;
-    left: 40px;
-    object-fit: cover;
-  }
+.preview__container{ 
+  align-items: center;
 }
-/* @media screen and (max-width: 768px) {
-  .preview__close_button {
-    width: 30px;
-    height: 30px;
-    bottom: calc(100% + 8px);
-  }
-
-  .preview__image {
-    width: 240px;
-    height: 299px;
-    top: 136px;
-    left: 40px;
-  }
-} */
+.preview__description{ 
+  width:240px; 
+  height:12px; 
+}
+.preview__image {
+  width: 240px;
+  height: 299px;
+}
+ 
+}
