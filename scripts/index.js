@@ -30,7 +30,7 @@ const addNewCardButton = document.querySelector(".profile__add-button");
 const addNewCardModal = document.querySelector(".modal__add-button");
 const addCardFormElement = addNewCardModal.querySelector(".modal__form");
 // Edit Modal
-const profileEditButton = document.querySelector(".profile__edit-button");
+const profileEditButton = document.querySelector(".profile__edit_button");
 const profileFormElement = profileEditButton.querySelector(".modal__form");
 const profileEditModal = document.querySelector(".profile__edit_modal");
 const profileModalClose = profileEditModal.querySelector(".modal__close");

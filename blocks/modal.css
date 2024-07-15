@@ -112,6 +112,11 @@
 }
 
 @media screen and (max-width: 500px) {
+  .modal__container{ 
+    width:282px; 
+    height:322px; 
+    border:1px solid #0000; 
+  }
   .modal__title {
     height: 22px;
     font-size: 18px;

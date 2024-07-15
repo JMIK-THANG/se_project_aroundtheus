@@ -40,7 +40,7 @@
   max-width: 415px;
   margin: 0;
 }
-.profile__edit-button {
+.profile__edit_button {
   background: transparent url(../imgaes/edit-button.svg) center no-repeat;
   height: 24px;
   width: 24px;
