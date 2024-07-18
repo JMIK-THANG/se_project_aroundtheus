@@ -55,7 +55,7 @@ const cardTemplate =
 // Preview
 const previewImageModal = document.querySelector(".modal_preview-image");
 const previewCloseButton = previewImageModal.querySelector(
-  ".modal__close-button"
+  ".modal__close_preview"
 );
 const previewImage = previewImageModal.querySelector(".modal__image");
 const previewDescription = previewImageModal.querySelector(
