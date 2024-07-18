@@ -27,12 +27,12 @@ const initialCards = [
 
 // Add button
 const addNewCardButton = document.querySelector(".profile__add-button");
-const addNewCardModal = document.querySelector(".modal__add-button");
+const addNewCardModal = document.querySelector(".modal_add-button");
 const addCardFormElement = addNewCardModal.querySelector(".modal__form");
 // Edit Modal
 const profileEditButton = document.querySelector(".profile__edit_button");
 const profileFormElement = profileEditButton.querySelector(".modal__form");
-const profileEditModal = document.querySelector(".profile__edit_modal");
+const profileEditModal = document.querySelector(".modal_edit-profile");
 const profileModalClose = profileEditModal.querySelector(".modal__close");
 const addModalClose = addNewCardModal.querySelector(".modal__close");
 // Profile Input
@@ -53,13 +53,13 @@ const cardUrlInput = addNewCardModal.querySelector(".form__input-description");
 const cardTemplate =
   document.querySelector("#card__template").content.firstElementChild;
 // Preview
-const previewImageModal = document.querySelector(".preview__image_modal");
+const previewImageModal = document.querySelector(".modal_preview-image");
 const previewCloseButton = previewImageModal.querySelector(
-  ".preview__close_button"
+  ".modal__close-button"
 );
-const previewImage = previewImageModal.querySelector(".preview__image");
+const previewImage = previewImageModal.querySelector(".modal__image");
 const previewDescription = previewImageModal.querySelector(
-  ".preview__description"
+  ".modal__description"
 );
 
 function closeModal(modal) {
