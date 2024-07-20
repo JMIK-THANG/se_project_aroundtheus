@@ -23,8 +23,11 @@
   }
   .form__input-title {
     margin-bottom: 30px;
+    padding-bottom:0px; 
   }
   .form__input-description {
-    margin-bottom: 45px;
+    margin-bottom: 46px;
+    padding-bottom:0px; 
+
   }
 }
