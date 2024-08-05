@@ -6,7 +6,6 @@
   bottom: 0;
   right: 0;
   z-index: 999;
-  /* display: none; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,7 +112,21 @@
   max-height: 75vh;
   object-fit: cover;
 }
-
+.modal__button_disabled{ 
+  background:#fff; 
+  color:rgba(0, 0, 0, 0.2); 
+  border:1px solid rgba(0, 0, 0, 0.2);
+}
+.modal__error_visible { 
+  font-size:12px; 
+  line-height: 14.52px;
+  font-weight:400; 
+  color:#FF0000; 
+}
+.modal__form_popup{ 
+  position:absolute; 
+  top:calc(100% + 5px); 
+}
 @media screen and (max-width: 500px) {
   .modal__container {
     width: 282px;

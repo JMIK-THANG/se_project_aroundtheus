@@ -14,7 +14,15 @@
   margin-bottom: 29.74px;
 }
 .form__input-description {
-  margin-bottom: 48px;
+  /* margin-bottom: 48px; */
+}
+.form__input_type_error{ 
+   border-bottom:1px solid red; 
+}
+.modal__form_label{ 
+  position:relative; 
+  margin-bottom:30px; 
+
 }
 
 @media screen and (max-width: 550px) {
