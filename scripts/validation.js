@@ -16,19 +16,21 @@ function checkInputValidity(formEle, inputEle, options) {
   if (!inputEle.validity.valid) {
     return showInputError(formEle, inputEle, options);
   }
-    hideInputError(formEle, inputEle, options);
-  }
+  hideInputError(formEle, inputEle, options);
+}
 
-function toggleButtonState(inputEle, submitButton, { inactiveButtonClass }) {
-  let foundInvalid = false;
-  inputEle.forEach((input) => {
-    if (!input.validity.valid) {
-      foundInvalid = true;
-    }
-  });
-  if (foundInvalid) {
+function hasInvalidInput(inputList) {
+  return !inputList.every((inputEl) => inputEl.validity.valid);
+}
+function toggleButtonState(
+  inputElements,
+  submitButton,
+  { inactiveButtonClass }
+) {
+  if (hasInvalidInput(inputElements)) {
     submitButton.classList.add(inactiveButtonClass);
-    return submitButton.disabled = true;
+    submitButton.disabled = true;
+    return;
   }
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
@@ -36,12 +38,13 @@ function toggleButtonState(inputEle, submitButton, { inactiveButtonClass }) {
 
 function setEventListeners(formEle, options) {
   const { inputSelector } = options;
-  const inputElement = [...formEle.querySelectorAll(inputSelector)];
-  const submitButton = formEle.querySelector(".modal__button");
-  inputElement.forEach((inputEle) => {
+  const { submitButtonSelector } = options;
+  const inputElements = [...formEle.querySelectorAll(inputSelector)];
+  const submitButton = formEle.querySelector(submitButtonSelector);
+  inputElements.forEach((inputEle) => {
     inputEle.addEventListener("input", (e) => {
       checkInputValidity(formEle, inputEle, options);
-      toggleButtonState(inputEle, submitButton, options);
+      toggleButtonState(inputElements, submitButton, options);
     });
   });
 }
@@ -56,10 +59,10 @@ function enableValidation(options) {
 }
 const config = {
   formSelector: ".form",
-  inputSelector: ".form__input",
+  inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "form__input_type_error",
+  inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
 enableValidation(config);

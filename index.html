@@ -45,38 +45,43 @@
         <p class="footer__description">&copy; 2024 Around the U.S</p>
       </footer>
     </div>
-    <!-- Edit button Modal -->
+    <!-- Edit profile Modal -->
     <div class="modal modal_edit-profile">
       <div class="modal__container">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__title">Edit Profile</h2>
         <form class="modal__form form">
-          <label for="title" class="modal__form_label">
-            <input
-              type="text"
-              name="title"
-              id="title"
-              class="form__input form__input-title"
-              placeholder="title"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span class="modal__form_popup" id="title-error"></span>
-          </label>
-          <label for="description" class="modal__form_label">
-            <input
-              type="text"
-              name="description"
-              id="description"
-              class="form__input form__input-description"
-              placeholder="description"
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span class="modal__form_popup" id="description-error"></span>
-          </label>
+          <div class="modal__label-container">
+            <label for="title" class="modal__form_label">
+              <input
+                type="text"
+                name="title"
+                id="profile-title"
+                class="modal__input modal__input-title"
+                placeholder="title"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span class="modal__form_popup" id="profile-title-error"></span>
+            </label>
+            <label for="description" class="modal__form_label">
+              <input
+                type="text"
+                name="description"
+                id="profile-description"
+                class="modal__input modal__input-description"
+                placeholder="description"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span
+                class="modal__form_popup"
+                id="profile-description-error"
+              ></span>
+            </label>
+          </div>
           <button
             type="submit"
             class="modal__button modal__button_disabled"
@@ -90,33 +95,36 @@
         <button type="button" class="modal__close"></button>
         <h2 class="modal__title">New Place</h2>
         <form class="modal__form form">
-          <label for="title" class="modal__form_label">
-            <input
-              type="text"
-              name="title"
-              id="title"
-              class="form__input form__input-title"
-              placeholder="Title"
-              minlength="1"
-              maxlength="30"
-              required
-            />
-            <span class="modal__form_popup" id="title-error"></span>
-          </label>
-          <label for="description" class="modal__form_label">
-            <input
-              type="text"
-              name="description"
-              id="description"
-              class="form__input form__input-description"
-              placeholder="Image url"
-              required
-            />
-            <span class="modal__form_popup" id="description-error"></span>
-          </label>
+          <div class="modal__label-container">
+            <label for="title" class="modal__form_label">
+              <input
+                type="text"
+                name="title"
+                id="add-card-title"
+                class="modal__input modal__input-title"
+                placeholder="Title"
+                minlength="1"
+                maxlength="30"
+                required
+              />
+              <span class="modal__form_popup" id="add-card-title-error"></span>
+            </label>
+            <label for="description" class="modal__form_label">
+              <input
+                type="text"
+                name="description"
+                id="add-description"
+                class="modal__input modal__input-description"
+                placeholder="Image url"
+                required
+              />
+              <span class="modal__form_popup" id="add-description-error"></span>
+            </label>
+          </div>
           <button
             type="submit"
             class="modal__button modal__button_disabled"
+            disabled
           ></button>
         </form>
       </div>
