@@ -50,9 +50,9 @@
       <div class="modal__container">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__title">Edit Profile</h2>
-        <form class="modal__form form">
+        <form class="modal__form">
           <div class="modal__label-container">
-            <label for="title" class="modal__form_label">
+            <label for="title" class="modal__label">
               <input
                 type="text"
                 name="title"
@@ -63,9 +63,9 @@
                 maxlength="40"
                 required
               />
-              <span class="modal__form_popup" id="profile-title-error"></span>
+              <span class="modal__span" id="profile-title-error"></span>
             </label>
-            <label for="description" class="modal__form_label">
+            <label for="description" class="modal__label">
               <input
                 type="text"
                 name="description"
@@ -76,10 +76,7 @@
                 maxlength="200"
                 required
               />
-              <span
-                class="modal__form_popup"
-                id="profile-description-error"
-              ></span>
+              <span class="modal__span" id="profile-description-error"></span>
             </label>
           </div>
           <button type="submit" class="modal__button"></button>
@@ -91,9 +88,9 @@
       <div class="modal__container">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__title">New Place</h2>
-        <form class="modal__form form">
+        <form class="modal__form">
           <div class="modal__label-container">
-            <label for="title" class="modal__form_label">
+            <label for="title" class="modal__label">
               <input
                 type="text"
                 name="title"
@@ -104,18 +101,18 @@
                 maxlength="30"
                 required
               />
-              <span class="modal__form_popup" id="add-card-title-error"></span>
+              <span class="modal__span" id="add-card-title-error"></span>
             </label>
-            <label for="description" class="modal__form_label">
+            <label for="description" class="modal__label">
               <input
-                type="text"
+                type="url"
                 name="description"
                 id="add-description"
                 class="modal__input modal__input-description"
                 placeholder="Image url"
                 required
               />
-              <span class="modal__form_popup" id="add-description-error"></span>
+              <span class="modal__span" id="add-description-error"></span>
             </label>
           </div>
           <button
