@@ -139,7 +139,7 @@
 }
 .modal__button_disabled {
   background: #fff;
-  color:grey; 
+  color: grey;
   background-image: url(../imgaes/saveButtonGrey.svg);
   background-repeat: no-repeat;
   background-position: center;

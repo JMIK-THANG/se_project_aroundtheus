@@ -64,14 +64,13 @@ const previewDescription = previewImageModal.querySelector(
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeEscHandler); 
-  modal.removeEventListener("click", closeEscHandler); 
-
+  document.removeEventListener("keydown", closeEscHandler);
+  modal.removeEventListener("click", closeEscHandler);
 }
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeEscHandler);
-  modal.addEventListener("click", closeOverlayHandler); 
+  modal.addEventListener("click", closeOverlayHandler);
 }
 function closeEscHandler(e) {
   if (e.key === "Escape") {
@@ -79,9 +78,9 @@ function closeEscHandler(e) {
     closeModal(modalOpened);
   }
 }
-function closeOverlayHandler(e) { 
-  if(e.target === e.currentTarget) { 
-    closeModal(e.currentTarget)
+function closeOverlayHandler(e) {
+  if (e.target === e.currentTarget) {
+    closeModal(e.currentTarget);
   }
 }
 
