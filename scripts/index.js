@@ -110,12 +110,10 @@ function getCardElement(data) {
   cardImage.alt = data.name;
   const cardTitle = cardElement.querySelector(".card__title");
   cardTitle.textContent = data.name;
-
   const deleteButton = cardElement.querySelector(".delete__button");
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
-
   const likeButton = cardElement.querySelector(".card__like-button");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
@@ -147,6 +145,5 @@ previewCloseButton.addEventListener("click", () =>
   closeModal(previewImageModal)
 );
 initialCards.forEach((cardObj) => {
-  const cardElement = getCardElement(cardObj);
-  cardListEl.prepend(cardElement);
+  renderCard(cardObj, cardListEl);
 });
