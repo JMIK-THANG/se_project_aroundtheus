@@ -34,7 +34,7 @@ class FormValidator {
       return !inputEl.validity.valid;
     });
   }
-  
+
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._disableSubmitButton(this._inactiveButtonClass);

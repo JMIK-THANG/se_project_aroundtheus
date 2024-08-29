@@ -53,7 +53,7 @@
   line-height: 16.94px;
   padding-bottom: 13.26px;
 }
-.modal__form_popup {
+.modal__span {
   position: absolute;
   top: calc(100% + 3px);
   z-index: 5;
