@@ -38,7 +38,7 @@
   flex-direction: column;
   gap: 30px;
 }
-.modal__form_label {
+.modal__label {
   position: relative;
 }
 .modal__input {
@@ -106,21 +106,6 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-}
-.modal__close_preview {
-  position: absolute;
-  background: url(../imgaes/preview-icon.svg);
-  background-color: transparent;
-  bottom: calc(100% + 5px);
-  left: calc((100% + 5px));
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background-position: contain;
-  cursor: pointer;
-  transition: opacity 0.5s ease-in-out;
 }
 .modal__close-button:hover {
   opacity: 60%;
