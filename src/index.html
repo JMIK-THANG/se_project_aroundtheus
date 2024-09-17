@@ -7,14 +7,13 @@
     <meta name="author" content="software Engineer" />
     <meta name="keywords" content="HTML, CSS, Media Queries, javascript" />
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" href="pages/index.css" />
     <title>SE Around The U.S</title>
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./imgaes/header-logo.svg"
+          src="<%=require('./imgaes/header-logo.svg')%>"
           alt="Around the U.S. Logo"
           class="header__logo"
         />
@@ -22,7 +21,7 @@
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./imgaes/jacques-cousteau.jpg"
+            src="<%=require('./imgaes/jacques-cousteau.jpg')%>"
             alt="Avatar"
             class="profile__image"
           />
@@ -46,11 +45,11 @@
       </footer>
     </div>
     <!-- Edit profile Modal -->
-    <div class="modal modal_edit-profile">
+    <div class="modal modal_edit-profile" id="profile-edit-modal">
       <div class="modal__container">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__title">Edit Profile</h2>
-        <form class="modal__form">
+        <form class="modal__form" name="edit-profile">
           <div class="modal__label-container">
             <label for="title" class="modal__label">
               <input
@@ -84,11 +83,11 @@
       </div>
     </div>
     <!-- Add button Modal-->
-    <div class="modal modal_add-card">
+    <div class="modal modal_add-card" id="modal-add-card">
       <div class="modal__container">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__title">New Place</h2>
-        <form class="modal__form">
+        <form class="modal__form" name="add-card">
           <div class="modal__label-container">
             <label for="title" class="modal__label">
               <input
@@ -141,11 +140,9 @@
           <button type="button" class="card__like-button"></button>
         </div>
         <button type="button" class="delete__button">
-          <img src="./imgaes/trash.svg" alt="" />
+          <!-- <img src="./imgaes/trash.svg" alt="" /> -->
         </button>
       </li>
     </template>
-    <script type="module" src="pages/index.js"></script>
-    <!-- <script src="scripts/validation.js"></script> -->
   </body>
 </html>
