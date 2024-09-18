@@ -15,12 +15,6 @@ import {
   profileFormElement,
   profileEditButton,
   cardListEl,
-  profileTitle,
-  profileDescription,
-  previewDescription,
-  cardTitleInput,
-  cardUrlInput,
-  previewImage,
 } from "../utils/constants.js";
 
 /* -------------------------------------------------------------------------- */
@@ -70,9 +64,9 @@ const userInfo = new UserInfo({
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function renderCard(cardData, cardContainer) {
+function renderCard(cardData) {
   const cardElement = createCard(cardData);
-  cardContainer.prepend(cardElement);
+  section.addItem(cardElement);
 }
 function createCard(cardData) {
   const createCard = new Card(
@@ -84,15 +78,16 @@ function createCard(cardData) {
   return cardElement;
 }
 
-function handleProfileFormSubmit() {
-  userInfo.setUserInfo(modalTitleInput.value, modalDescriptionInput.value);
+function handleProfileFormSubmit(inputvalues) {
+  userInfo.setUserInfo(inputvalues.title, inputvalues.description);
   profileEditFormPopup.closeModal();
 }
-function handleAddCardFormSubmit() {
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
+function handleAddCardFormSubmit(inputValues) {
+  debugger;
+  const name = inputValues.title;
+  const link = inputValues.url;
   renderCard({ name, link }, cardListEl);
-  // closeModal(addNewCardModal);
+
   addCardFormPopup.closeModal();
   addCardFormElement.reset();
   addFormValidator.disableSubmitButton();
@@ -100,9 +95,6 @@ function handleAddCardFormSubmit() {
 
 // Preview pictures
 function handlePreviewPicture(data) {
-  previewDescription.textContent = data.name;
-  previewImage.src = data.link;
-  previewImage.alt = data.name;
   popupWithImage.openModal(data);
 }
 
@@ -112,9 +104,9 @@ function handlePreviewPicture(data) {
 
 profileEditButton.addEventListener("click", () => {
   // use getInfo method
-  userInfo.getUserInfo();
-  modalTitleInput.value = profileTitle.textContent;
-  modalDescriptionInput.value = profileDescription.textContent;
+  const userData = userInfo.getUserInfo();
+  modalTitleInput.value = userData.name;
+  modalDescriptionInput.value = userData.description;
   profileEditFormPopup.openModal();
 });
 // Open button modal
