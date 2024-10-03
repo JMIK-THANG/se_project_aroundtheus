@@ -5,6 +5,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
+import Api from "../components/Api.js";
 import {
   initialCards,
   addNewCardButton,
@@ -45,7 +46,7 @@ popupWithImage.setEventListeners();
 // Section instance
 const section = new Section(
   {
-    items: initialCards,
+    items: [],
     renderer: (cardData) => {
       const cardElement = createCard(cardData);
       section.addItem(cardElement);
@@ -53,7 +54,7 @@ const section = new Section(
   },
   ".cards__list"
 );
-section.renderItems();
+// section.renderItems();
 
 // UserInfo instance
 const userInfo = new UserInfo({
@@ -63,6 +64,24 @@ const userInfo = new UserInfo({
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                              Instance for api                              */
+/* -------------------------------------------------------------------------- */
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "5b58450e-f26a-4e94-99e4-d0bbf8319b25",
+    "Content-Type": "application/json",
+  },
+});
+api
+  .getInitialCards()
+  .then((res) => {
+    section.setItems(res);
+    section.renderItems();
+  })
+  .catch(console.error);
 
 function renderCard(cardData) {
   const cardElement = createCard(cardData);
