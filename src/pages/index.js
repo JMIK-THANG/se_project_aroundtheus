@@ -17,6 +17,7 @@ import {
   profileEditButton,
   cardListEl,
 } from "../utils/constants.js";
+import PopupWithConfirm from "../components/PopupWithConfirm.js";
 
 /* -------------------------------------------------------------------------- */
 /*                               Class Instances                              */
@@ -91,7 +92,8 @@ function createCard(cardData) {
   const createCard = new Card(
     cardData,
     "#card__template",
-    handlePreviewPicture
+    handlePreviewPicture,
+    handleDeleteClick
   );
   const cardElement = createCard.getCardElement();
   return cardElement;
@@ -102,7 +104,6 @@ function handleProfileFormSubmit(inputvalues) {
   profileEditFormPopup.closeModal();
 }
 function handleAddCardFormSubmit(inputValues) {
-  debugger;
   const name = inputValues.title;
   const link = inputValues.url;
   renderCard({ name, link }, cardListEl);
@@ -115,6 +116,33 @@ function handleAddCardFormSubmit(inputValues) {
 // Preview pictures
 function handlePreviewPicture(data) {
   popupWithImage.openModal(data);
+}
+// Cards Delete Confirm
+const deleteConfirmPopup = new PopupWithConfirm({
+  popupSelector: "popup-confirm-delete",
+  handleFormSubmit: () => {},
+});
+deleteConfirmPopup.setEventListeners();
+//this runs when you click the trash button on a card
+function handleDeleteClick(cardId, card) {
+  // here will be ID
+  // popupWithConfirm should be opened with ID
+  deleteConfirmPopup.openModal();
+  deleteConfirmPopup.setSubmitHandler(() => {
+    //this runs when you submit the delte-confirm modal
+    deleteConfirmPopup.renderLoading(true);
+
+    api
+      .deleteCard(cardId)
+      .then(() => {
+        card.remove();
+        deleteConfirmPopup.closeModal();
+      })
+      .catch(console.err)
+      .finally(() => {
+        deleteConfirmPopup.renderLoading(false);
+      });
+  });
 }
 
 /* -------------------------------------------------------------------------- */

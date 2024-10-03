@@ -16,7 +16,7 @@ export default class Api {
         return Promise.reject(`Error: ${res.status}`);
       })
       .catch((err) => {
-        console.error("Something went wrong", err);
+        console.error("FAiled to fetch initial cards:", err);
       });
   }
   // edit profile
@@ -36,7 +36,7 @@ export default class Api {
         return Promise.reject(`Error:${res.status}`);
       })
       .catch((err) => {
-        console.error("Something went wrong", err);
+        console.error("Fail to fetch user info:", err);
       });
   }
   // Adding a new card
@@ -59,5 +59,6 @@ export default class Api {
         console.error("Something went wrong", err);
       });
   }
+  
   
 }
