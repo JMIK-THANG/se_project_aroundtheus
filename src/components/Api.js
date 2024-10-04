@@ -16,7 +16,7 @@ export default class Api {
         return Promise.reject(`Error: ${res.status}`);
       })
       .catch((err) => {
-        console.error("FAiled to fetch initial cards:", err);
+        console.error((err));
       });
   }
   // User Info
@@ -27,7 +27,7 @@ export default class Api {
       if(res.ok) { 
         return res.json(); 
       }
-      return Promise.reject(`Erroe: ${res.status}`); 
+      return Promise.reject(`Error: ${res.status}`); 
     }) .catch((err) =>{ 
       console.error("Failed to fetch user info: ", err); 
     })
@@ -81,7 +81,7 @@ export default class Api {
         if (res.json) {
           return res.json();
         }
-        return Promise.reject(`Error:${res.status}`);
+        return Promise.reject(`Error: ${res.status}`);
       })
       .catch((err) => {
         console.error("Something went wrong", err);
@@ -90,7 +90,7 @@ export default class Api {
 
   // Delete card 
   deleteCard(cardId){ 
-    return fetch(`${this._baseUrl}/cards/$cardId`, { 
+    return fetch(`${this._baseUrl}/cards/${cardId}`, { 
       method:"DELETE", 
       headers: this._headers, 
     })

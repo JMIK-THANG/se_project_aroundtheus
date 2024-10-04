@@ -119,19 +119,19 @@ function handlePreviewPicture(data) {
 }
 // Cards Delete Confirm
 const deleteConfirmPopup = new PopupWithConfirm({
-  popupSelector: "popup-confirm-delete",
-  handleFormSubmit: () => {},
+  popupSelector: "#popup-confirm-delete",
 });
 deleteConfirmPopup.setEventListeners();
 //this runs when you click the trash button on a card
 function handleDeleteClick(cardId, card) {
   // here will be ID
   // popupWithConfirm should be opened with ID
+
   deleteConfirmPopup.openModal();
   deleteConfirmPopup.setSubmitHandler(() => {
     //this runs when you submit the delte-confirm modal
     deleteConfirmPopup.renderLoading(true);
-
+debugger;
     api
       .deleteCard(cardId)
       .then(() => {

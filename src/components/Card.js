@@ -17,7 +17,7 @@ export default class Card {
       this._handleLikeIcon();
     });
     this._deleteButton = this._cardElement.querySelector(".delete__button");
-    this._deleteButton.addEventListener("click", (e) => this._handleDeleteClick()); // here send ID
+    this._deleteButton.addEventListener("click", (e) => this._handleDeleteClick()); // here send ID // need to find out argument!!!!
     this._cardImage.addEventListener("click", () => {
       this._handleImageClick({ name: this._name, link: this._link });
     });
