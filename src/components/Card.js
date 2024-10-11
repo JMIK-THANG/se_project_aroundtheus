@@ -1,15 +1,17 @@
 export default class Card {
   constructor(
-    { name, link }, // here is no id
+    { name, link, _id },
     cardSelector,
     handleImageClick,
     handleDeleteClick
   ) {
+    this._cardId = _id;
     this._name = name;
     this._link = link;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
     this._cardSelector = cardSelector; // Template
+    console.log(this)
   }
   _setEventListeners() {
     this._likeButton = this._cardElement.querySelector(".card__like-button");
@@ -17,13 +19,18 @@ export default class Card {
       this._handleLikeIcon();
     });
     this._deleteButton = this._cardElement.querySelector(".delete__button");
-    this._deleteButton.addEventListener("click", (e) => this._handleDeleteClick()); // here send ID // need to find out argument!!!!
+    this._deleteButton.addEventListener("click", (e) =>
+      this._handleDeleteClick(this, this._cardId)
+    );
     this._cardImage.addEventListener("click", () => {
       this._handleImageClick({ name: this._name, link: this._link });
     });
   }
   _handleLikeIcon() {
     this._likeButton.classList.toggle("card__like-button_active");
+  }
+  remove() {
+    this._cardElement.remove(); 
   }
 
   getCardElement() {

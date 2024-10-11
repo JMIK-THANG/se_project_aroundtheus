@@ -46,6 +46,9 @@ export const addCardFormElement = addNewCardModal.querySelector(".modal__form");
 export const profileEditButton = document.querySelector(
   ".profile__edit-button"
 );
+// Profile picture modal from profile picture popup 
+export const profilePictureButton = document.querySelector(".image__edit-button"); 
+export const profilePictureModal = document.querySelector("#profile-picture-modal"); 
 export const profileEditModal = document.querySelector(".modal_edit-profile");
 export const profileFormElement =
   profileEditModal.querySelector(".modal__form");
@@ -74,3 +77,4 @@ export const previewDescription = previewImageModal.querySelector(
   ".modal__description"
 );
 export const closeButtons = [...document.querySelectorAll(".modal__close")];
+

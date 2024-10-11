@@ -16,62 +16,65 @@ export default class Api {
         return Promise.reject(`Error: ${res.status}`);
       })
       .catch((err) => {
-        console.error((err));
+        console.error(err);
       });
   }
   // User Info
-  getUserInfo() { 
-    return fetch(`${this._baseUrl}/users/me`, { 
-      headers: headers,
-    }).then((res) => { 
-      if(res.ok) { 
-        return res.json(); 
-      }
-      return Promise.reject(`Error: ${res.status}`); 
-    }) .catch((err) =>{ 
-      console.error("Failed to fetch user info: ", err); 
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "GET",
+      headers: this._headers,
     })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch user info: ", err);
+      });
   }
   // Update user profile
-  updateUserInfo(name, about) { 
-    return fetch(`${this._baseUrl}/users/me`, { 
-      headers: headers,
+  updateUserInfo(name, about) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
       body: JSON.stringify({
-        name, 
-        about
+        name,
+        about,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
       })
-    })
-    .then((res) => { 
-      if(res.ok) { 
-        return res.json(); 
-      }
-      return Promise.reject(`Error: ${res.status}`); 
-    })
-    .catch((err) => { 
-      console.error("Failed to update user info: ", err); 
-    })
+      .catch((err) => {
+        console.error("Failed to update user info: ", err);
+      });
   }
   // Update avatar
-  updateUserAvatar(avatarUrl) { 
-    return fetch(`${this._baseUrl}/users/me/avatar`, { 
-      method: "PATCH", 
-    headers:this._headers,
-      body: JSON.stringify({ 
-        avartar:avatarUrl
-      })
-  }) .then((res) => { 
-    if(res.ok){ 
-      return res.json(); 
-    }
-    return Promise.reject(`Error: ${res.status}`); 
-  })
+  updateUserPicture(avatar) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
   }
-  
+
   // Adding a new card
   addNewCards(name, link) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this._headers, // Content-Type ??? 
+      headers: this._headers,
       body: JSON.stringify({
         name,
         link,
@@ -88,52 +91,52 @@ export default class Api {
       });
   }
 
-  // Delete card 
-  deleteCard(cardId){ 
-    return fetch(`${this._baseUrl}/cards/${cardId}`, { 
-      method:"DELETE", 
-      headers: this._headers, 
+  // Delete card
+  deleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
     })
-    .then((res) => { 
-      if(res.ok) { 
-        return res.json(); 
-      }
-      return Promise.reject(`Error: ${res.status}`); 
-    })
-    .catch((err) => { 
-      console.error("Failed to delete card:", err); 
-    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.error("Failed to delete card:", err);
+      });
   }
-  // Like card 
+  // Like card
 
-  likeCard(cardId){ 
-    return fetch(`${this._baseUrl}/cards/${cardId}likes`, { 
-      method: "PUT", 
-      headers: this._headers, 
+  likeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}likes`, {
+      method: "PUT",
+      headers: this._headers,
     })
-    .then((res) => { 
-      if(res.ok){ 
-        return res.json(); 
-      }
-      return Promise.reject(`Error: ${res.status}`); 
-    })
-    .catch((err) => { 
-      console.error("Failed to like card:", err); 
-    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.error("Failed to like card:", err);
+      });
   }
-  disLikeCard(cardId) { 
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, { 
-      method:"DELETE",
-      headers: this._headers, 
+  disLikeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
     })
-    .then((res) => { 
-      if(res.ok){ 
-        return res.json(); 
-      }
-      return Promise.reject(`Error: ${res.status}`); 
-    })
-    .catch((err) => { 
-      console.error("Failed to dislike card: ", err); 
-    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.error("Failed to dislike card: ", err);
+      });
   }
 }

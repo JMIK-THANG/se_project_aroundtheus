@@ -16,6 +16,10 @@ import {
   profileFormElement,
   profileEditButton,
   cardListEl,
+  profileImage,
+  profilePictureButton,
+  profilePictureModal,
+  profileDescription,
 } from "../utils/constants.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js";
 
@@ -26,6 +30,8 @@ const addFormValidator = new FormValidator(config, addCardFormElement);
 addFormValidator.enableValidation();
 const profileFormValidator = new FormValidator(config, profileFormElement);
 profileFormValidator.enableValidation();
+const editPictureValidator = new FormValidator(config, profilePictureModal);
+editPictureValidator.enableValidation();
 
 const profileEditFormPopup = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
@@ -61,6 +67,7 @@ const section = new Section(
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__title",
   profileDescriptionSelector: ".profile__description",
+  profilePictureSelector: ".profile__image",
 });
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -72,7 +79,7 @@ const userInfo = new UserInfo({
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "5b58450e-f26a-4e94-99e4-d0bbf8319b25",
+    authorization: "45288969-7703-40e1-b9c1-60a8b41e2f8f",
     "Content-Type": "application/json",
   },
 });
@@ -89,13 +96,14 @@ function renderCard(cardData) {
   section.addItem(cardElement);
 }
 function createCard(cardData) {
-  const createCard = new Card(
+  console.log(cardData);
+  const card = new Card(
     cardData,
     "#card__template",
     handlePreviewPicture,
     handleDeleteClick
   );
-  const cardElement = createCard.getCardElement();
+  const cardElement = card.getCardElement();
   return cardElement;
 }
 
@@ -106,7 +114,17 @@ function handleProfileFormSubmit(inputvalues) {
 function handleAddCardFormSubmit(inputValues) {
   const name = inputValues.title;
   const link = inputValues.url;
-  renderCard({ name, link }, cardListEl);
+
+  api
+    .addNewCards(name, link)
+    .then((cardData) => {
+      console.log(cardData);
+      renderCard(cardData, cardListEl);
+    })
+    .catch(console.err)
+    .finally(() => {
+      deleteConfirmPopup.renderLoading(false);
+    });
 
   addCardFormPopup.closeModal();
   addCardFormElement.reset();
@@ -123,7 +141,7 @@ const deleteConfirmPopup = new PopupWithConfirm({
 });
 deleteConfirmPopup.setEventListeners();
 //this runs when you click the trash button on a card
-function handleDeleteClick(cardId, card) {
+function handleDeleteClick(card, cardId) {
   // here will be ID
   // popupWithConfirm should be opened with ID
 
@@ -131,7 +149,7 @@ function handleDeleteClick(cardId, card) {
   deleteConfirmPopup.setSubmitHandler(() => {
     //this runs when you submit the delte-confirm modal
     deleteConfirmPopup.renderLoading(true);
-debugger;
+
     api
       .deleteCard(cardId)
       .then(() => {
@@ -158,3 +176,43 @@ profileEditButton.addEventListener("click", () => {
 });
 // Open button modal
 addNewCardButton.addEventListener("click", () => addCardFormPopup.openModal());
+// Open button for profile picture change
+/* -------------------------------------------------------------------------- */
+/*                             profile info change                            */
+/* -------------------------------------------------------------------------- */
+// api.updateUserInfo()
+// .then((res)=>{ 
+//   console.log(res);
+//   userInfo.setUserInfo({profileName:res.name, profileDescription:res.about})
+// })
+// Profile Picture change
+const profilePicturePopup = new PopupWithForm({
+  popupSelector: "#profile-picture-modal",
+  handleFormSubmit: (pictureData) => {
+    const pictureUrl = pictureData.picture;
+    if (!pictureUrl) {
+      console.log("URL missing");
+      return;
+    }
+    // profilePicturePopup.setButtonText(true);
+    api
+      .updateUserPicture(pictureUrl)
+      .then((pictureData) => {
+        console.log(pictureData);
+        userInfo.setUserPicture(pictureData.avatar);
+       
+        editPictureValidator.disableSubmitButton();
+        profilePicturePopup.closeModal();
+      })
+      .catch((err) => {
+        console.error("Fail", err);
+      })
+      .finally(() => {
+        // profilePicturePopup.setButtonText();
+      });
+  },
+});
+profilePicturePopup.setEventListeners();
+profilePictureButton.addEventListener("click", () => {
+  profilePicturePopup.openModal();
+});

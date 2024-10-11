@@ -20,19 +20,22 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./imgaes/jacques-cousteau.jpg')%>"
-            alt="Avatar"
-            class="profile__image"
-          />
+          <div class="edit__picture-controls">
+            <img
+              src="<%=require('./imgaes/jacques-cousteau.jpg')%>"
+              alt="Avatar"
+              class="profile__image"
+            />
+            <button class="image__edit-button" id="image__edit-button" type="button"></button>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title"></h1>
             <button
               type="button"
               class="profile__edit-button"
               id="profile-edit-button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button type="button" class="profile__add-button"></button>
         </section>
@@ -133,7 +136,7 @@
     </div>
     <!-- sprint 9 -->
     <!--  Edit Profile Picture  -->
-    <div class="modal" id="profile-picture-modal">
+     <div class="modal" id="profile-picture-modal">
       <div class="modal__container">
         <button class="modal__close" type="button"></button>
         <h2 class="modal__heading">Change profile picture</h2>
@@ -154,18 +157,18 @@
       </div>
     </div>
 
-    <!--  Delete Confirm Modal  -->
+     <!-- Delete Confirm Modal  -->
     <div class="modal" id="popup-confirm-delete">
       <div class="modal__container modal__container-delete">
         <button class="modal__close" type="button"></button>
         <h2 class="modal__heading">Are you sure?</h2>
-        <form  class="modal__form">
+        <form class="modal__form">
           <button class="modal__button modal__button-delete" type="submit">
             Yes
           </button>
         </form>
       </div>
-    </div>
+    </div> 
     <!-- Template Card -->
     <template id="card__template">
       <li class="card overlay">
