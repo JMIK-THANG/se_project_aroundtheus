@@ -11,7 +11,7 @@ export default class Card {
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
     this._cardSelector = cardSelector; // Template
-    console.log(this)
+   
   }
   _setEventListeners() {
     this._likeButton = this._cardElement.querySelector(".card__like-button");

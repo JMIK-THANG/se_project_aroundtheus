@@ -96,7 +96,6 @@ function renderCard(cardData) {
   section.addItem(cardElement);
 }
 function createCard(cardData) {
-  console.log(cardData);
   const card = new Card(
     cardData,
     "#card__template",
@@ -108,7 +107,15 @@ function createCard(cardData) {
 }
 
 function handleProfileFormSubmit(inputvalues) {
-  userInfo.setUserInfo(inputvalues.title, inputvalues.description);
+  // userInfo.setUserInfo(inputvalues.title, inputvalues.description);
+  api
+    .getUserInfo()
+    .then((res) => {
+      userInfo.setUserInfo(res.name, res.about);
+    })
+    .then((err) => {
+      console.error(err);
+    });
   profileEditFormPopup.closeModal();
 }
 function handleAddCardFormSubmit(inputValues) {
@@ -118,7 +125,6 @@ function handleAddCardFormSubmit(inputValues) {
   api
     .addNewCards(name, link)
     .then((cardData) => {
-      console.log(cardData);
       renderCard(cardData, cardListEl);
     })
     .catch(console.err)
@@ -180,11 +186,7 @@ addNewCardButton.addEventListener("click", () => addCardFormPopup.openModal());
 /* -------------------------------------------------------------------------- */
 /*                             profile info change                            */
 /* -------------------------------------------------------------------------- */
-// api.updateUserInfo()
-// .then((res)=>{ 
-//   console.log(res);
-//   userInfo.setUserInfo({profileName:res.name, profileDescription:res.about})
-// })
+
 // Profile Picture change
 const profilePicturePopup = new PopupWithForm({
   popupSelector: "#profile-picture-modal",
@@ -200,7 +202,7 @@ const profilePicturePopup = new PopupWithForm({
       .then((pictureData) => {
         console.log(pictureData);
         userInfo.setUserPicture(pictureData.avatar);
-       
+
         editPictureValidator.disableSubmitButton();
         profilePicturePopup.closeModal();
       })
