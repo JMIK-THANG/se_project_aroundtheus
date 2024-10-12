@@ -108,7 +108,15 @@ function createCard(cardData) {
 
 function handleProfileFormSubmit(inputvalues) {
   // userInfo.setUserInfo(inputvalues.title, inputvalues.description);
-  api
+  
+    api.updateUserInfo(inputvalues.title, inputvalues.description)
+    .then((res) => {
+      userInfo.setUserInfo(res.name, res.about);
+      profileEditFormPopup.closeModal();
+    })
+ 
+}
+api
     .getUserInfo()
     .then((res) => {
       userInfo.setUserInfo(res.name, res.about);
@@ -116,8 +124,6 @@ function handleProfileFormSubmit(inputvalues) {
     .then((err) => {
       console.error(err);
     });
-  profileEditFormPopup.closeModal();
-}
 function handleAddCardFormSubmit(inputValues) {
   const name = inputValues.title;
   const link = inputValues.url;
