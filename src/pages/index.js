@@ -120,6 +120,7 @@ api
     .getUserInfo()
     .then((res) => {
       userInfo.setUserInfo(res.name, res.about);
+      userInfo.setUserPicture(res.avatar); 
     })
     .then((err) => {
       console.error(err);
