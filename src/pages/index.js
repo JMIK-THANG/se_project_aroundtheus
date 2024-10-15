@@ -188,16 +188,22 @@ function handleLikeButtonClick(card) {
   //check if the card is liked or not
   if (card.isLiked) {
     //if it is liked, we unlike it on the server and then unlike it on the Dom, and change isLiked to false
-    api.disLikeCard(card.getId()).then(() => {
-      card.unLikeCardOnDom();
-      this.isLiked = false;
-    });
+    api
+      .disLikeCard(card.getId())
+      .then(() => {
+        card.unLikeCardOnDom();
+        this.isLiked = false;
+      })
+      .catch(console.err);
   } else {
     //if it's not, we like it on the server, and then like it on the Dom, and change isLiked to true
-    api.likeCard(card.getId()).then(() => {
-      card.likeCardOnDom();
-      this.isLiked = true;
-    });
+    api
+      .likeCard(card.getId())
+      .then(() => {
+        card.likeCardOnDom();
+        this.isLiked = true;
+      })
+      .catch(console.err);
   }
 }
 // Like Dislike funditipon
