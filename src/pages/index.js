@@ -95,12 +95,14 @@ function renderCard(cardData) {
   const cardElement = createCard(cardData);
   section.addItem(cardElement);
 }
+
 function createCard(cardData) {
   const card = new Card(
     cardData,
     "#card__template",
     handlePreviewPicture,
-    handleDeleteClick
+    handleDeleteClick,
+    handleLikeButtonClick
   );
   const cardElement = card.getCardElement();
   return cardElement;
@@ -108,16 +110,22 @@ function createCard(cardData) {
 
 function handleProfileFormSubmit(inputvalues) {
   // userInfo.setUserInfo(inputvalues.title, inputvalues.description);
-  api
-    .getUserInfo()
-    .then((res) => {
-      userInfo.setUserInfo(res.name, res.about);
-    })
-    .then((err) => {
-      console.error(err);
-    });
-  profileEditFormPopup.closeModal();
+
+  api.updateUserInfo(inputvalues.title, inputvalues.description).then((res) => {
+    userInfo.setUserInfo(res.name, res.about);
+    profileEditFormPopup.closeModal();
+  });
 }
+api
+  .getUserInfo()
+  .then((res) => {
+    userInfo.setUserInfo(res.name, res.about);
+    userInfo.setUserPicture(res.avatar);
+  })
+  .catch((err) => {
+    alert("Could not get user info!");
+    console.error(err);
+  });
 function handleAddCardFormSubmit(inputValues) {
   const name = inputValues.title;
   const link = inputValues.url;
@@ -127,7 +135,10 @@ function handleAddCardFormSubmit(inputValues) {
     .then((cardData) => {
       renderCard(cardData, cardListEl);
     })
-    .catch(console.err)
+    .catch((err) => {
+      alert("Could not add a card!");
+      console.error(err);
+    })
     .finally(() => {
       deleteConfirmPopup.renderLoading(false);
     });
@@ -169,6 +180,43 @@ function handleDeleteClick(card, cardId) {
   });
 }
 
+function handleLikeButtonClick(card) {
+  console.log(card.isLiked);
+
+  //don't forget to add catch blocks
+
+  //check if the card is liked or not
+  if (card.isLiked) {
+    //if it is liked, we unlike it on the server and then unlike it on the Dom, and change isLiked to false
+    api
+      .disLikeCard(card.getId())
+      .then(() => {
+        card.unLikeCardOnDom();
+        this.isLiked = false;
+      })
+      .catch(console.err);
+  } else {
+    //if it's not, we like it on the server, and then like it on the Dom, and change isLiked to true
+    api
+      .likeCard(card.getId())
+      .then(() => {
+        card.likeCardOnDom();
+        this.isLiked = true;
+      })
+      .catch(console.err);
+  }
+}
+// Like Dislike funditipon
+// function handleLike(evt, id) {
+//   console.log(id);
+//   const isLiked = evt.target.classList.contains("card__like-button_liked");
+//   api
+//     .handleLike(id, isLiked)
+//     .then(() => {
+//       evt.target.classList.toggle("card__like-button_liked");
+//     })
+//     .catch(console.error);
+// }
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                               */
 /* -------------------------------------------------------------------------- */
