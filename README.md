@@ -2,7 +2,7 @@
 
 ## Intro
 
-- The project is in the Triple Ten bootcamp sprint-3. Everything written from scratch.
+- The project is from TripleTen bootcamp. Everything written from scratch.
 - The project was build using HTML5, CSS and included media queries for resposiveness.
 
 ## Title
@@ -11,16 +11,18 @@
 - CSS
 - Flexbox
 - Grid
-- Meria Query
+- Media Query
+  -JavaScript
 
 ## Features
 
-- illipisis which allow to collapse the text element and repalce with three dots (...).
+- Illipisis which allow to collapse the text element and repalce with three dots (...).
 
 ## deploy
 
 [the project link](https://jmik-thang.github.io/se_project_aroundtheus/)
 
 ## video
+
 [video]
 https://drive.google.com/file/d/1GHtc2fDue4MvcUNoeokhhkco7UQatpkD/view?usp=sharing
