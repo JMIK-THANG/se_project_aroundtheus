@@ -1,9 +1,10 @@
 export default class UserInfo {
-  constructor({ profileNameSelector, profileDescriptionSelector }) {
+  constructor({ profileNameSelector, profileDescriptionSelector,profilePictureSelector }) {
     this._profileName = document.querySelector(profileNameSelector);
     this._profileDescription = document.querySelector(
       profileDescriptionSelector
     );
+    this._profilePicture = document.querySelector(profilePictureSelector); 
   }
 
   // use when you need the text content of profile elements
@@ -21,4 +22,10 @@ export default class UserInfo {
     this._profileName.textContent = name;
     this._profileDescription.textContent = description;
   }
+
+  setUserPicture(picture){ 
+    this._profilePicture.src = picture; 
+  }
 }
+
+
