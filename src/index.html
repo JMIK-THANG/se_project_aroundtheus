@@ -26,7 +26,13 @@
               alt="Avatar"
               class="profile__image"
             />
-            <button class="image__edit-button" id="image__edit-button" type="button"></button>
+            <button
+              class="image__edit-button"
+              id="image__edit-button"
+              type="button"
+            >
+              Save
+            </button>
           </div>
           <div class="profile__info">
             <h1 class="profile__title"></h1>
@@ -81,7 +87,7 @@
               <span class="modal__span" id="profile-description-error"></span>
             </label>
           </div>
-          <button type="submit" class="modal__button"></button>
+          <button type="submit" class="modal__button">Save</button>
         </form>
       </div>
     </div>
@@ -121,7 +127,9 @@
             type="submit"
             class="modal__button modal__button_disabled"
             disabled
-          ></button>
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -136,10 +144,10 @@
     </div>
     <!-- sprint 9 -->
     <!--  Edit Profile Picture  -->
-     <div class="modal" id="profile-picture-modal">
-      <div class="modal__container">
+    <div class="modal" id="profile-picture-modal">
+      <div class="modal__container modal__container_type_picture">
         <button class="modal__close" type="button"></button>
-        <h2 class="modal__heading">Change profile picture</h2>
+        <h2 class="modal__title">Change profile picture</h2>
         <form class="modal__form" id="profile_picture">
           <label for="profile-picture-input" class="modal__label">
             <input
@@ -152,14 +160,14 @@
             />
             <span class="modal__span" id="profile-picture-input-error"></span>
           </label>
-          <button class="modal__button" type="submit" disabled></button>
+          <button class="modal__button" type="submit" disabled>Save</button>
         </form>
       </div>
     </div>
 
-     <!-- Delete Confirm Modal  -->
+    <!-- Delete Confirm Modal  -->
     <div class="modal" id="popup-confirm-delete">
-      <div class="modal__container modal__container-delete">
+      <div class="modal__container modal__container_type_delete">
         <button class="modal__close" type="button"></button>
         <h2 class="modal__heading">Are you sure?</h2>
         <form class="modal__form">
@@ -168,7 +176,7 @@
           </button>
         </form>
       </div>
-    </div> 
+    </div>
     <!-- Template Card -->
     <template id="card__template">
       <li class="card overlay">
