@@ -109,13 +109,20 @@ function createCard(cardData) {
 }
 
 function handleProfileFormSubmit(inputvalues) {
-  // userInfo.setUserInfo(inputvalues.title, inputvalues.description);
-
-  api.updateUserInfo(inputvalues.title, inputvalues.description).then((res) => {
-    userInfo.setUserInfo(res.name, res.about);
-    profileEditFormPopup.closeModal();
-  });
+  debugger;
+  profileEditFormPopup.renderLoading(true);
+  api
+    .updateUserInfo(inputvalues.title, inputvalues.description)
+    .then((res) => {
+      userInfo.setUserInfo(res.name, res.about);
+      profileEditFormPopup.closeModal();
+    })
+    .catch(console.error)
+    .finally(() => {
+      profileEditFormPopup.renderLoading(false);
+    });
 }
+
 api
   .getUserInfo()
   .then((res) => {
@@ -127,6 +134,7 @@ api
     console.error(err);
   });
 function handleAddCardFormSubmit(inputValues) {
+  addCardFormPopup.renderLoading(true);
   const name = inputValues.title;
   const link = inputValues.url;
 
@@ -134,18 +142,17 @@ function handleAddCardFormSubmit(inputValues) {
     .addNewCards(name, link)
     .then((cardData) => {
       renderCard(cardData, cardListEl);
+      addCardFormPopup.closeModal();
+      addCardFormElement.reset();
+      addFormValidator.disableSubmitButton();
     })
     .catch((err) => {
       alert("Could not add a card!");
       console.error(err);
     })
     .finally(() => {
-      deleteConfirmPopup.renderLoading(false);
+      addCardFormPopup.renderLoading(false);
     });
-
-  addCardFormPopup.closeModal();
-  addCardFormElement.reset();
-  addFormValidator.disableSubmitButton();
 }
 
 // Preview pictures
@@ -181,8 +188,6 @@ function handleDeleteClick(card, cardId) {
 }
 
 function handleLikeButtonClick(card) {
-  console.log(card.isLiked);
-
   //check if the card is liked or not
   if (card.isLiked) {
     //if it is liked, we unlike it on the server and then unlike it on the Dom, and change isLiked to false
@@ -190,7 +195,7 @@ function handleLikeButtonClick(card) {
       .disLikeCard(card.getId())
       .then(() => {
         card.unLikeCardOnDom();
-        this.isLiked = false;
+        card.isLiked = false;
       })
       .catch(console.err);
   } else {
@@ -199,7 +204,7 @@ function handleLikeButtonClick(card) {
       .likeCard(card.getId())
       .then(() => {
         card.likeCardOnDom();
-        this.isLiked = true;
+        card.isLiked = true;
       })
       .catch(console.err);
   }

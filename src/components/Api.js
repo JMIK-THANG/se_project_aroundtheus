@@ -52,7 +52,7 @@ export default class Api {
         avatar,
       }),
     };
-    return this._request(rul, options);
+    return this._request(url, options);
   }
 
   // Adding a new card
@@ -62,6 +62,7 @@ export default class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
+        
         name,
         link,
       }),
