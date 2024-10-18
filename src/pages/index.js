@@ -183,8 +183,6 @@ function handleDeleteClick(card, cardId) {
 function handleLikeButtonClick(card) {
   console.log(card.isLiked);
 
-  //don't forget to add catch blocks
-
   //check if the card is liked or not
   if (card.isLiked) {
     //if it is liked, we unlike it on the server and then unlike it on the Dom, and change isLiked to false
@@ -206,17 +204,7 @@ function handleLikeButtonClick(card) {
       .catch(console.err);
   }
 }
-// Like Dislike funditipon
-// function handleLike(evt, id) {
-//   console.log(id);
-//   const isLiked = evt.target.classList.contains("card__like-button_liked");
-//   api
-//     .handleLike(id, isLiked)
-//     .then(() => {
-//       evt.target.classList.toggle("card__like-button_liked");
-//     })
-//     .catch(console.error);
-// }
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                               */
 /* -------------------------------------------------------------------------- */
