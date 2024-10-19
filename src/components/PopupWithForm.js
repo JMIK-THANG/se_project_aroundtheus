@@ -13,7 +13,6 @@ export default class PopupWithForm extends Popup {
     const inputList = Array.from(
       this._popupElement.querySelectorAll(".modal__input")
     );
-
     const data = {};
     inputList.forEach((input) => {
       data[input.name] = input.value;
@@ -23,7 +22,6 @@ export default class PopupWithForm extends Popup {
   // add 2 params: isLoading and loadingText with a default text
 
   renderLoading(isLoading, loadingText = "Saving...") {
-    console.log(this._submitBtn);
     if (isLoading) {
       this._submitBtn.textContent = loadingText;
     } else {
