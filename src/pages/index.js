@@ -109,7 +109,6 @@ function createCard(cardData) {
 }
 
 function handleProfileFormSubmit(inputvalues) {
-  debugger;
   profileEditFormPopup.renderLoading(true);
   api
     .updateUserInfo(inputvalues.title, inputvalues.description)
@@ -237,7 +236,7 @@ const profilePicturePopup = new PopupWithForm({
       console.log("URL missing");
       return;
     }
-    // profilePicturePopup.setButtonText(true);
+    profilePicturePopup.renderLoading(true);
     api
       .updateUserPicture(pictureUrl)
       .then((pictureData) => {
@@ -251,7 +250,7 @@ const profilePicturePopup = new PopupWithForm({
         console.error("Fail", err);
       })
       .finally(() => {
-        // profilePicturePopup.setButtonText();
+        profilePicturePopup.renderLoading(false);
       });
   },
 });
