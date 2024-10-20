@@ -19,6 +19,9 @@ export default class PopupWithForm extends Popup {
     });
     return data;
   }
+  reset() {
+    this._form.reset();
+  }
   // add 2 params: isLoading and loadingText with a default text
 
   renderLoading(isLoading, loadingText = "Saving...") {
@@ -33,8 +36,7 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
-      this._handleFormSubmit(this._getInputValues()); // parameter problem
-      this._form.reset();
+      this._handleFormSubmit(this._getInputValues());
     });
   }
 }

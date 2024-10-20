@@ -240,9 +240,11 @@ const profilePicturePopup = new PopupWithForm({
     api
       .updateUserPicture(pictureUrl)
       .then((pictureData) => {
+        console.log(profilePicturePopup);
         userInfo.setUserPicture(pictureData.avatar);
         editPictureValidator.disableSubmitButton();
         profilePicturePopup.closeModal();
+        profilePicturePopup.reset();
       })
       .catch((err) => {
         console.error("Fail", err);
