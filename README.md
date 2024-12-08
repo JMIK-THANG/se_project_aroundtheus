@@ -1,9 +1,9 @@
 # Project 3: Around The U.S.
 
-## Intro
+## Project Description
+This project is dynamic and interactive website that user can add/change profile and add/delete new images, like and unlike functionality. 
+The website is buit using HTML, CSS and JavaScript. 
 
-- The project is in the Triple Ten bootcamp sprint-3. Everything written from scratch.
-- The project was build using HTML5, CSS and included media queries for resposiveness.
 
 ## Title
 
