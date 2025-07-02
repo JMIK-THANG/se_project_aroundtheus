@@ -31,7 +31,12 @@
   border-radius: 10px;
   background: #fff;
   color: #000000;
-
+}
+.modal__container_type_delete {
+  height: 181px;
+}
+.modal__container_type_picture {
+  height: 272px;
 }
 .modal__label-container {
   display: flex;
@@ -54,7 +59,7 @@
   padding-bottom: 13.26px;
 }
 .modal__span {
-  position: absolute;
+  /* position: absolute; */
   top: calc(100% + 3px);
   z-index: 5;
 }
@@ -74,6 +79,7 @@
   cursor: pointer;
   transition: opacity 0.5s ease-in-out;
 }
+
 .modal__close:hover {
   opacity: 50%;
 }
@@ -92,12 +98,13 @@
   border-radius: 2px;
   font-size: 18px;
   line-height: 21.78px;
-  background: url(../imgaes/Save.svg) center no-repeat;
   background-color: #000000;
   transition: opacity 0.5s ease-in-out;
   cursor: pointer;
   margin-top: 48px;
+  color: #fff;
 }
+
 .modal__button:hover {
   opacity: 80%;
 }

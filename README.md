@@ -5,9 +5,9 @@ This project is dynamic and interactive website that user can add/change profile
 The website is buit using HTML, CSS and JavaScript. 
 
 
+
 ## Tools / key features
 
-Semantic HTML: to structure and define the content of web pages. It's the foundation of websites and allows users to create web pages with elements like images, links, and headers. 
 
 Responsive Design: CSS media queries are employed to provide a seamless experience across various devices, ensuring that the layout adapts perfectly to different screen sizes.
 
@@ -17,11 +17,11 @@ Dynamic Content: The website dynamically updates content based on user interacti
 
 Visual Styling: Custom CSS styles enhance the visual appeal of the site, making it visually attractive and easy to navigate.
 
-
 ## deploy
 
 [the project link](https://jmik-thang.github.io/se_project_aroundtheus/)
 
 ## video
+
 [video]
 https://drive.google.com/file/d/1GHtc2fDue4MvcUNoeokhhkco7UQatpkD/view?usp=sharing
